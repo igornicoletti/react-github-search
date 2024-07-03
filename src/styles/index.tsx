@@ -1,2 +1,6 @@
 export { ErrorVariants } from './error'
+export { OverviewVariants } from './overview'
+export { ProfileVariants } from './profile'
+export { RepositoriesVariants } from './repositories'
+export { RootVariants } from './root'
 export { SearchVariants } from './search'

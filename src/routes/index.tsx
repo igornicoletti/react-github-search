@@ -1,2 +1,2 @@
 export { ProfilePage } from './profile'
-export { SearchPage } from './search'
+export { RootPage } from './root'

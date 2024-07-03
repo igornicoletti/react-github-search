@@ -4,19 +4,20 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import './index.css'
 import { ErrorPage } from './error'
-import { ProfilePage, SearchPage } from './routes'
+import { ProfilePage, RootPage } from './routes'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <SearchPage />,
+    element: <RootPage />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/:profileId',
+        element: <ProfilePage />,
+      }
+    ]
   },
-  {
-    path: '/:profileId',
-    element: <ProfilePage />,
-    errorElement: <ErrorPage />,
-  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
