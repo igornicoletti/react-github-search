@@ -7,8 +7,9 @@ const { rootcontainer, rootlayout, } = RootVariants()
 const { searchcontent, searchform, searchicon, searchinput, searchsubmit, searchtitle } = SearchVariants()
 
 export const RootAction = async ({ request }: { request: Request }) => {
-  const url = Object.fromEntries(await request.formData())
-  return redirect(`/${url.profile}`)
+  const formData = await request.formData()
+  const profile = formData.get('profile')
+  return redirect(`${profile}`)
 }
 
 export const RootPage = () => {

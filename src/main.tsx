@@ -4,7 +4,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 
 import './index.css'
 import { ErrorPage } from './error'
-import { ProfileLoader, ProfilePage, RootAction, RootPage } from './routes'
+import { NotFoundPage, ProfileLoader, ProfilePage, RootAction, RootPage } from './routes'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -13,10 +13,12 @@ const router = createBrowserRouter(
       action={RootAction}
       element={<RootPage />}
       errorElement={<ErrorPage />}>
-      <Route
-        path={'/:profile'}
-        loader={ProfileLoader}
-        element={<ProfilePage />} />
+      <Route errorElement={<NotFoundPage />}>
+        <Route
+          path={':profile'}
+          loader={ProfileLoader}
+          element={<ProfilePage />} />
+      </Route>
     </Route>
   )
 )
