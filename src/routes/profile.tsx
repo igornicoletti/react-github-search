@@ -1,9 +1,9 @@
 import { Params, useLoaderData } from 'react-router-dom'
 
-import { ProfileVariants } from '../styles'
-import { ProfileType } from '../types'
-import { OverviewComponent, RepositoriesComponent } from '../components'
 import { ProfileApi } from '../api'
+import { ProfileType } from '../types'
+import { ProfileVariants } from '../styles'
+import { OverviewComponent, RepositoriesComponent } from '../components'
 
 const { profilecontent, profilerepos } = ProfileVariants()
 
