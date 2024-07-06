@@ -1,2 +1,2 @@
-export { ProfilePage } from './profile'
-export { RootPage } from './root'
+export { ProfileLoader, ProfilePage } from './profile'
+export { RootAction, RootPage } from './root'

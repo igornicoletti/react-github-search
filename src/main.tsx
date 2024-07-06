@@ -1,24 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
 import './index.css'
 import { ErrorPage } from './error'
-import { ProfilePage, RootPage } from './routes'
+import { ProfileLoader, ProfilePage, RootAction, RootPage } from './routes'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <RootPage />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: '/:profileId',
-        element: <ProfilePage />,
-      }
-    ]
-  },
-])
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route
+      path={'/'}
+      action={RootAction}
+      element={<RootPage />}
+      errorElement={<ErrorPage />}>
+      <Route
+        path={'/:profile'}
+        loader={ProfileLoader}
+        element={<ProfilePage />} />
+    </Route>
+  )
+)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

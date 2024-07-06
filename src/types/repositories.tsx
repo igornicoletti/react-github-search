@@ -1,8 +1,8 @@
-export type RepositoriesProps = {
+export interface RepositoriesType {
   id: number
-  html_url: string
   name: string
+  html_url: string
   description: string
-  stargazers_count: number
   homepage: string
+  stargazers_count: number
 }

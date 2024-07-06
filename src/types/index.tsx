@@ -1,2 +1,3 @@
-export type { OverviewProps } from './overview'
-export type { RepositoriesProps } from './repositories'
+export type { OverviewType } from './overview'
+export type { ProfileProps, ProfileType } from './profile'
+export type { RepositoriesType } from './repositories'

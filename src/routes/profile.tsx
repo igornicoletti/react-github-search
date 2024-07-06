@@ -1,44 +1,25 @@
+import { Params, useLoaderData } from 'react-router-dom'
+
 import { ProfileVariants } from '../styles'
+import { ProfileType } from '../types'
 import { OverviewComponent, RepositoriesComponent } from '../components'
+import { ProfileApi } from '../api'
 
 const { profilecontent, profilerepos } = ProfileVariants()
 
-const overview = {
-  avatar_url: 'https://avatars.githubusercontent.com/u/40406316?v=4',
-  name: 'Igor Nicoletti',
-  login: 'igornicoletti',
-  bio: 'Front-End Developer - React | Node.js',
-  followers: 6,
-  following: 6,
-  public_repos: 6,
-  location: 'São José do Rio Preto, São Paulo, Brasil',
+export const ProfileLoader = async ({ params }: { params: Params<string> }) => {
+  const profile = await ProfileApi(params)
+  return profile
 }
 
-const repositories = [
-  {
-    id: 815717789,
-    html_url: 'https://github.com/igornicoletti/api-coffee-delivery',
-    name: 'api-coffee-delivery',
-    description: 'Fake REST API deployed with JSON Server on Vercel, used in the Coffee Delivery project.',
-    stargazers_count: 0,
-    homepage: 'https://react-github-search-omega.vercel.app',
-  },
-  {
-    id: 794700559,
-    html_url: 'https://github.com/igornicoletti/api-coffee-delivery',
-    name: 'api-coffee-delivery',
-    description: 'Fake REST API deployed with JSON Server on Vercel, used in the Coffee Delivery project.',
-    stargazers_count: 0,
-    homepage: 'https://react-github-search-omega.vercel.app',
-  }
-]
-
 export const ProfilePage = () => {
+  const profile = useLoaderData() as ProfileType
+
   return (
     <div className={profilecontent()}>
-      <OverviewComponent {...overview} />
+      <OverviewComponent {...profile.overview} />
       <ul className={profilerepos()}>
-        {repositories.map((repository) => (
+        {profile.repositories.map((repository) => (
           <RepositoriesComponent key={repository.id} {...repository} />
         ))}
       </ul>
