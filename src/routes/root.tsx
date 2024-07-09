@@ -23,6 +23,7 @@ export const RootPage = () => {
               type={'text'}
               id={'profile'}
               name={'profile'}
+              autoComplete={'off'}
               placeholder={'Search...'}
               className={searchinput()} />
             <button className={searchsubmit()} type={'submit'}>
