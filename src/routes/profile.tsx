@@ -13,13 +13,13 @@ export const ProfileLoader = async ({ params }: { params: Params<string> }) => {
 }
 
 export const ProfilePage = () => {
-  const profile = useLoaderData() as ProfileType
+  const { overview, repositories } = useLoaderData() as ProfileType
 
   return (
     <div className={profilecontent()}>
-      <OverviewComponent {...profile.overview} />
+      <OverviewComponent {...overview} />
       <ul className={profilerepos()}>
-        {profile.repositories.map((repository) => (
+        {repositories.map((repository) => (
           <RepositoriesComponent key={repository.id} {...repository} />
         ))}
       </ul>
