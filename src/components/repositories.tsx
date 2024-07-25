@@ -14,21 +14,23 @@ export const RepositoriesComponent = ({ description, homepage, html_url, name, s
         <h2 className={reposname()}>{name}</h2>
       </Link>
       {description && (<p className={reposdescription()}>{description}</p>)}
-      <div className={reposinfo()}>
-        {stargazers_count > 0 && (
-          <div className={reposlink()}>
-            <StarIcon className={reposiconsmall()} aria-hidden={true} />
-            <span>{stargazers_count}</span>
-          </div>
-        )}
-        {stargazers_count > 0 && homepage && (<span className={reposdivision()}>•</span>)}
-        {homepage && (
-          <Link className={reposlink()} to={homepage} target={'_blank'}>
-            <LinkIcon className={reposiconsmall()} aria-hidden={true} />
-            <span>{homepage} </span>
-          </Link>
-        )}
-      </div>
+      {(stargazers_count > 0 || homepage) && (
+        <div className={reposinfo()}>
+          {stargazers_count > 0 && (
+            <div className={reposlink()}>
+              <StarIcon className={reposiconsmall()} aria-hidden={true} />
+              <span>{stargazers_count}</span>
+            </div>
+          )}
+          {stargazers_count > 0 && homepage && (<span className={reposdivision()}>•</span>)}
+          {homepage && (
+            <Link className={reposlink()} to={homepage} target={'_blank'}>
+              <LinkIcon className={reposiconsmall()} aria-hidden={true} />
+              <span>{homepage} </span>
+            </Link>
+          )}
+        </div>
+      )}
     </li>
   )
 }
