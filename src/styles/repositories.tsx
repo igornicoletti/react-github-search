@@ -2,9 +2,9 @@ import { tv } from 'tailwind-variants'
 
 export const RepositoriesVariants = tv({
   slots: {
-    reposcard: 'flex flex-col gap-4 p-4 rounded-md border-2 border-in-slate',
-    reposlink: 'flex items-center gap-2',
-    reposname: 'font-medium uppercase',
+    reposcard: 'flex flex-col gap-4 py-6 first:pt-0',
+    reposlink: 'flex items-center gap-4',
+    reposname: 'w-full flex items-center justify-between gap-4 font-medium uppercase',
     reposicon: 'size-4 shrink-0 text-in-cyan',
     reposiconsmall: 'size-3 shrink-0',
     reposdescription: 'text-xs',

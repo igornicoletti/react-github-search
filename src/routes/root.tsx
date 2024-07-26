@@ -1,5 +1,5 @@
 import { SearchIcon } from 'lucide-react'
-import { Form, Link, Outlet, redirect } from 'react-router-dom'
+import { Form, Outlet, redirect } from 'react-router-dom'
 
 import { RootVariants, SearchVariants } from '../styles'
 
@@ -17,15 +17,9 @@ export const RootPage = () => {
     <div className={rootlayout()}>
       <div className={rootcontainer()}>
         <div className={searchcontent()}>
-          <Link to={'/'}><h1 className={searchtitle()}>GitHub Search</h1></Link>
+          <h1 className={searchtitle()}>GitHub Search</h1>
           <Form className={searchform()} method={'post'}>
-            <input
-              type={'text'}
-              id={'profile'}
-              name={'profile'}
-              autoComplete={'off'}
-              placeholder={'Search...'}
-              className={searchinput()} />
+            <input className={searchinput()} id={'profile'} name={'profile'} autoComplete={'off'} placeholder={'Search...'} />
             <button className={searchsubmit()} type={'submit'}>
               <SearchIcon className={searchicon()} />
             </button>

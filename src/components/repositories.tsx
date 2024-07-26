@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { LinkIcon, StarIcon, TerminalIcon } from 'lucide-react'
+import { ExternalLinkIcon, LinkIcon, StarIcon, TerminalIcon } from 'lucide-react'
 
 import { RepositoriesType } from '../types'
 import { RepositoriesVariants } from '../styles'
@@ -11,7 +11,10 @@ export const RepositoriesComponent = ({ description, homepage, html_url, name, s
     <li className={reposcard()}>
       <Link className={reposlink()} to={html_url} target={'_blank'}>
         <TerminalIcon className={reposicon()} aria-hidden={true} />
-        <h2 className={reposname()}>{name}</h2>
+        <h2 className={reposname()}>
+          <span>{name}</span>
+          <ExternalLinkIcon className={reposicon()} aria-hidden={true} />
+        </h2>
       </Link>
       {description && (<p className={reposdescription()}>{description}</p>)}
       {(stargazers_count > 0 || homepage) && (

@@ -19,7 +19,7 @@ export const OverviewComponent = ({ avatar_url, bio, blog, company, email, follo
           </Link>
         </div>
       </div>
-      <p className={overviewbio()}>{bio}</p>
+      {bio && (<p className={overviewbio()}>{bio}</p>)}
       <ul className={overviewul()}>
         <li className={overviewli()}>
           <UserRoundCheckIcon className={overviewicon()} aria-hidden={true} />
@@ -34,32 +34,34 @@ export const OverviewComponent = ({ avatar_url, bio, blog, company, email, follo
           <span>{public_repos} repositórios público</span>
         </li>
       </ul>
-      <ul className={overviewul()}>
-        {company && (
-          <li className={overviewli()}>
-            <Building2Icon className={overviewicon()} aria-hidden={true} />
-            <span>{company}</span>
-          </li>
-        )}
-        {location && (
-          <li className={overviewli()}>
-            <MapPinIcon className={overviewicon()} aria-hidden={true} />
-            <span>{location}</span>
-          </li>
-        )}
-        {email && (
-          <li className={overviewli()}>
-            <MailIcon className={overviewicon()} aria-hidden={true} />
-            <span>{email}</span>
-          </li>
-        )}
-        {blog && (
-          <li className={overviewli()}>
-            <LinkIcon className={overviewicon()} aria-hidden={true} />
-            <span>{blog}</span>
-          </li>
-        )}
-      </ul>
+      {(company || location || email || blog) && (
+        <ul className={overviewul()}>
+          {company && (
+            <li className={overviewli()}>
+              <Building2Icon className={overviewicon()} aria-hidden={true} />
+              <span>{company}</span>
+            </li>
+          )}
+          {location && (
+            <li className={overviewli()}>
+              <MapPinIcon className={overviewicon()} aria-hidden={true} />
+              <span>{location}</span>
+            </li>
+          )}
+          {email && (
+            <li className={overviewli()}>
+              <MailIcon className={overviewicon()} aria-hidden={true} />
+              <span>{email}</span>
+            </li>
+          )}
+          {blog && (
+            <li className={overviewli()}>
+              <LinkIcon className={overviewicon()} aria-hidden={true} />
+              <span>{blog}</span>
+            </li>
+          )}
+        </ul>
+      )}
     </div>
   )
 }
